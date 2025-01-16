@@ -3,6 +3,7 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import db from './models/index.js';
 import authRoutes from './routes/authRoutes.js';
+import bookRoutes from './routes/bookRoutes.js';
 
 dotenv.config();
 
@@ -12,6 +13,7 @@ app.use(express.json());
 
 // Routes
 app.use('/auth', authRoutes);
+app.use('/books', bookRoutes);
 
 app.use('/', (req, res) => {
     res.status(200).json({
