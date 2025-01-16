@@ -22,6 +22,15 @@ db.sequelize.authenticate()
   .then(() => console.log('Conexion exitosa con la base de datos'))
   .catch(err => console.error('Error al conectar con la base de datos:', err));
 
+// Sequelize sync
+db.sequelize.sync({ force: false })
+.then(() => {
+  console.log('Base de datos sincronizada');
+})
+.catch((error) => {
+  console.error('Error al sincronizar la base de datos:', error);
+});
+
 // Server start
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {

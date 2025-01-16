@@ -1,4 +1,4 @@
-import 'dotenv/config'; // Esto carga automáticamente las variables de entorno
+import 'dotenv/config';
 
 const config = {
   development: {
@@ -24,4 +24,4 @@ const config = {
   },
 };
 
-export default config; // Asegúrate de usar export default
+export default config;
