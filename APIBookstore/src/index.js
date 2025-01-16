@@ -15,13 +15,6 @@ app.use(express.json());
 app.use('/auth', authRoutes);
 app.use('/books', bookRoutes);
 
-app.use('/', (req, res) => {
-    res.status(200).json({
-      message: 'Bienvenido a la API de gestión de libros, puede encontrar una descripción mas detallada en el markdown del proyecto general',
-      version: '1.0.0',
-    });
-  });
-
 // Database connection
 db.sequelize.authenticate()
   .then(() => console.log('Conexion exitosa con la base de datos'))
