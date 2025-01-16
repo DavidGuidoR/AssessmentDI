@@ -2,6 +2,8 @@ import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import db from './models/index.js';
+import authRoutes from './routes/authRoutes.js';
+import bookRoutes from './routes/bookRoutes.js';
 
 dotenv.config();
 
@@ -10,12 +12,8 @@ app.use(cors());
 app.use(express.json());
 
 // Routes
-app.use('/', (req, res) => {
-    res.status(200).json({
-      message: 'Bienvenido a la API de gestión de libros',
-      version: '1.0.0',
-    });
-  });
+app.use('/auth', authRoutes);
+app.use('/books', bookRoutes);
 
 // Database connection
 db.sequelize.authenticate()

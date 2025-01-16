@@ -22,13 +22,15 @@ export default (sequelize, DataTypes) => {
       allowNull: false,
       unique: true,
     },
-    release_date: {
+    releaseDate: {
       type: DataTypes.DATE,
       allowNull: false,
+      field: 'release_date',
     },
-    user_id: {
+    userId: {
       type: DataTypes.INTEGER,
       allowNull: false,
+      field: 'user_id',
     },
   }, {
     sequelize,
