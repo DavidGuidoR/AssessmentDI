@@ -10,7 +10,7 @@ export default (sequelize, DataTypes) => {
 
   Book.init({
     title: {
-      type: DataTypes.STRING,
+      type: DataTypes.STRING(500),
       allowNull: false,
     },
     author: {

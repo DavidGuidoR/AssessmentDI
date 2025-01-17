@@ -4,6 +4,7 @@ import dotenv from 'dotenv';
 import db from './models/index.js';
 import authRoutes from './routes/authRoutes.js';
 import bookRoutes from './routes/bookRoutes.js';
+import { setupSwagger } from './config/swaggerConfig.js';
 
 dotenv.config();
 
@@ -11,9 +12,21 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+// Swagger initiator
+setupSwagger(app);
+
 // Routes
 app.use('/auth', authRoutes);
 app.use('/books', bookRoutes);
+
+// Default Route
+app.get('/', (req, res) => {
+  res.status(200).json({
+    message: 'Bienvenido a la API de Gestión de Libros',
+    documentation: '/api-docs',
+  });
+});
+
 
 // Database connection
 db.sequelize.authenticate()
@@ -31,6 +44,7 @@ db.sequelize.sync({ force: false })
 
 // Server start
 const PORT = process.env.PORT || 3000;
+const HOST = process.env.APP_HOST || 'http://localhost';
 app.listen(PORT, () => {
-  console.log(`Servidor corriendo en http://localhost:${PORT}`);
+  console.log(`Servidor corriendo en ${HOST}:${PORT}`);
 });
