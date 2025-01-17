@@ -4,6 +4,7 @@ import dotenv from 'dotenv';
 import db from './models/index.js';
 import authRoutes from './routes/authRoutes.js';
 import bookRoutes from './routes/bookRoutes.js';
+import userRoutes from './routes/userRoutes.js'
 import { setupSwagger } from './config/swaggerConfig.js';
 
 dotenv.config();
@@ -18,6 +19,7 @@ setupSwagger(app);
 // Routes
 app.use('/auth', authRoutes);
 app.use('/books', bookRoutes);
+app.use('/users', userRoutes);
 
 // Default Route
 app.get('/', (req, res) => {
