@@ -1,0 +1,8 @@
+const path = require('path');
+
+module.exports = {
+  'config': path.resolve('src/config/config.js'), // Ruta al archivo de configuración ES6
+  'models-path': path.resolve('src/models'),      // Ruta a los modelos
+  'migrations-path': path.resolve('migrations'), // Ruta a las migraciones
+  'seeders-path': path.resolve('src/seeders'),    // Ruta a los seeders (si los usas)
+};
