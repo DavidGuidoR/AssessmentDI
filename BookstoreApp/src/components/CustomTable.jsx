@@ -35,7 +35,12 @@ const CustomTable = ({ title, rows, columns, loading }) => {
           overflow: "hidden", // Oculta contenido fuera de los bordes
         }}
       >
-        <Box sx={{ height: 400, width: "100%" }}>
+        <Box sx={{ 
+          minHeight: '300px',
+          maxHeight: 'calc(100vh - 250px)', 
+          width: "100%" 
+            }}
+          >
           <DataGrid
             rows={rows}
             columns={columns}

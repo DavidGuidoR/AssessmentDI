@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Books from './pages/Books';
 import Home from './pages/Home';
-const Users = () => <h1>Gestión de Usuarios</h1>;
+import Users from './pages/Users';
 
 const App = () => {
   return (
