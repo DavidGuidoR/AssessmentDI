@@ -20,3 +20,14 @@ export const createUserValidation = [
     .isString().withMessage('La contraseña debe ser un texto.')
     .notEmpty().withMessage('La contraseña es obligatoria.')
 ];
+
+export const updateUserValidation = [
+  body("name")
+    .optional()
+    .isString()
+    .withMessage("El nombre debe ser una cadena de texto."),
+  body("email")
+    .optional()
+    .isEmail()
+    .withMessage("Debe proporcionar un correo electrónico válido."),
+];

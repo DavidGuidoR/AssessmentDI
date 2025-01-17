@@ -3,6 +3,7 @@ import { Box, Typography, Paper } from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
 import api from "../services/api";
 import CustomTable from "../components/CustomTable";
+import BackButton from "../components/ArrowBack";
 
 const Books = () => {
   const [books, setBooks] = useState([]);
@@ -38,12 +39,15 @@ const Books = () => {
   ];
 
   return (
-    <CustomTable
-      title="Lista de Libros"
-      rows={books}
-      columns={columns}
-      loading={loading}
-    />
+    <div style={{ position: "relative", padding: "20px" }}>
+      <BackButton/>
+      <CustomTable
+        title="Lista de Libros"
+        rows={books}
+        columns={columns}
+        loading={loading}
+      />
+    </div>
   );
 };
 

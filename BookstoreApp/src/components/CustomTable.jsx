@@ -10,11 +10,8 @@ const CustomTable = ({ title, rows, columns, loading }) => {
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
-        height: "100%",
         width: "100%",
-        margin: "20px auto",
-        padding: "10px",
-        borderRadius: "10px",
+        padding: "20px",
       }}
     >
       <Typography
@@ -28,32 +25,40 @@ const CustomTable = ({ title, rows, columns, loading }) => {
       <Paper
         elevation={3}
         sx={{
+          width: "100%", // Ocupa todo el ancho disponible
+          maxWidth: "1200px", // Ancho máximo para pantallas grandes
           backgroundColor: "rgba(0,0,0,0.6)",
           border: "1px solid #90caf9",
           borderRadius: "10px",
-          margin: "3rem auto",
+          margin: "0 auto",
           padding: "10px",
+          overflow: "hidden", // Oculta contenido fuera de los bordes
         }}
       >
-        <DataGrid
-          rows={rows}
-          columns={columns}
-          pageSize={5}
-          rowsPerPageOptions={[5]}
-          loading={loading}
-          sx={{
-            "& .MuiDataGrid-columnHeaders": {
-              backgroundColor: "#1e1e1e",
-              color: "#90caf9",
-            },
-            "& .MuiDataGrid-row": {
-              color: "white",
-            },
-            "& .MuiDataGrid-row:hover": {
-              backgroundColor: "#121212",
-            },
-          }}
-        />
+        <Box sx={{ height: 400, width: "100%" }}>
+          <DataGrid
+            rows={rows}
+            columns={columns}
+            pageSize={5}
+            rowsPerPageOptions={[5]}
+            loading={loading}
+            sx={{
+              "& .MuiDataGrid-columnHeaders": {
+                backgroundColor: "#1e1e1e",
+                color: "#90caf9",
+              },
+              "& .MuiDataGrid-row": {
+                color: "white",
+              },
+              "& .MuiDataGrid-row:hover": {
+                backgroundColor: "#121212",
+              },
+              "& .MuiDataGrid-virtualScroller": {
+                overflowX: "auto", // Habilita el desplazamiento horizontal en dispositivos pequeños
+              },
+            }}
+          />
+        </Box>
       </Paper>
     </Box>
   );
